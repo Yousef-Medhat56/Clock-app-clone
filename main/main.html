@@ -39,15 +39,24 @@
         <!--The stopwatch section-->
         <section class="stopwatch">
             <div id="stopwatch-counter">
-                <span id = "minute-zero">0</span><span id = "minute">0:</span><span id = "second-zero">0</span><span id = second>0.</span><span id = "hundredth-of-second">00</span>
+                <!--<span id = "hour-zero">0</span><span id = "hour">0:</span>-->
+                <span id = "hour-zero">0</span><span id = "hour">0:</span><span id = "minute-zero">0</span><span id = "minute">0:</span><span id = "second-zero">0</span><span id = second>0.</span><span id = "hundredth-of-second">00</span>
             </div>
+            <div id = "lap-counter">
+                <span id = "minute-lap">00:</span><span id = "second-lap">00.</span><span id = "hundredth-of-second-lap">00</span>
+            </div>
+            <div id = "lap-order"></div>
+
         </section>
 
         <!--The button section-->
         <section class="button">
-            <div id="start-btn-div">
-
+            <div id="btn-div">
                 <button id = "start-btn">Start</button>
+                <div id = "btn-div-1" >
+                    <button id = "lap-btn">Lap</button>
+                    <button id = "pause-btn">Stop</button>
+                </div>
             </div>
         </section>
     </section>
@@ -55,7 +64,7 @@
     <style type="text/css">
         /* styling the (stopwatch) option */
         .stopwatch-li{  
-            color :rgb(84, 245, 191); 
+            color :rgb(48, 190, 143); 
         }
 
         .stopwatch-li:before{
@@ -65,7 +74,7 @@
             bottom:-15px;
             width: 100%;
             height:2px;
-            background-color: rgb(84, 245, 191) 
+            background-color: rgb(48, 190, 143) 
         }                     
      </style>
      <script src="app.js"></script>
