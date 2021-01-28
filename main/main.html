@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     
-    <!--JavaScript-->
+    
     
 </head>
 
@@ -39,34 +39,33 @@
         <!--The stopwatch section-->
         <section class="stopwatch">
             <div id="stopwatch-counter">
-                <!--<span id = "hour-zero">0</span><span id = "hour">0:</span>-->
+                <!--Time elements-->
                 <span id = "hour-zero">0</span><span id = "hour">0:</span><span id = "minute-zero">0</span><span id = "minute">0:</span><span id = "second-zero">0</span><span id = second>0.</span><span id = "hundredth-of-second">00</span>
             </div>
-            <div id = "lap-counter">
-                <span id = "minute-lap">00:</span><span id = "second-lap">00.</span><span id = "hundredth-of-second-lap">00</span>
-            </div>
-            <div id = "lap-order"></div>
+            
 
         </section>
 
         <!--The button section-->
         <section class="button">
             <div id="btn-div">
-                <button id = "start-btn">Start</button>
-                <div id = "btn-div-1" >
-                    <button id = "lap-btn">Lap</button>
-                    <button id = "pause-btn">Stop</button>
+                <button id = "start-btn">Start</button> <!--Start button-->
+                <div id = "after-start-btn" >  <!--The buttons that appear after clickin start button-->
+                    <button id = "reset-btn">Reset</button> <!--Reser button-->
+                    <button id = "resume-btn">Resume</button> <!--Resume button-->
                 </div>
             </div>
         </section>
     </section>
+    
     <!--local style-->
     <style type="text/css">
+    
         /* styling the (stopwatch) option */
         .stopwatch-li{  
             color :rgb(48, 190, 143); 
         }
-
+       /*Making tiny colorful border under  (stopwatch) option*/
         .stopwatch-li:before{
             content:"";
             position: absolute;
@@ -77,6 +76,8 @@
             background-color: rgb(48, 190, 143) 
         }                     
      </style>
+
+     <!--JavaScript-->
      <script src="app.js"></script>
 </body>
 </html>
