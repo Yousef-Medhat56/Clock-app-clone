@@ -24,6 +24,8 @@
     background-color: #fff;
     position: relative;
 }
+
+/*The page head - making tiny grey border under it*/
 .head:before{
     content:"";
     position: absolute;
@@ -73,8 +75,9 @@
     position: relative;
 }
 
+/*The page head - Adding hover effect on nav-bar options*/
 #head-nav-list-element:hover{
-    color : rgb(84, 245, 191) ;
+    color : rgb(48, 190, 143) ;
 }
 
 /*The page head - navbar div - styling options text*/
@@ -82,7 +85,7 @@
     letter-spacing: 1px;
 }
 
-
+/*Styling the common properties between (stopwatch section) and (button section)*/
 .stopwatch, .button{
     display: flex;
     align-items: center;
@@ -91,11 +94,14 @@
     position: relative;
 }
 
+/*Styling (Stopwatch section) */
 .stopwatch{
     order:1;
     flex-basis: 75%;
+    flex-direction: column;
 }
 
+/*Stopwatch section - Making tiny border under it*/
 .stopwatch:before{
     content:"";
     position: absolute;
@@ -105,35 +111,69 @@
     background-color: rgba(223, 217, 217, 0.712);
     
 }
-
+/*Stopwatch section - styling the stopwatch counter text*/
 #stopwatch-counter{
-    font-size: 50px;
-    color:rgb(84, 245, 191);
+    font-size: 4.5rem;
+    color:rgb(48, 190, 143);
     letter-spacing: 3px;
     
 }
 
-
+/*Stopwatch section - Styling time elements before clicking start*/
 #stopwatch-counter span{
-    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     opacity:0.5;
 }
-.button{
-    order:2;
-    flex-basis: 10%;
+
+/*Stopwatch section - Disappearing the hour span*/
+#hour-zero , #hour{
+    display:none
 }
 
-#start-btn-div , #start-btn {
+/*Styling (Button section) */
+.button{
+    order:2;
+    flex-basis: 9%;
+}
+
+/*Button section - Styling the buttons size*/
+#btn-div , #start-btn , #after-start-btn {
     width: 100%;
     height: 100%;
 }
 
-#start-btn{
+/*Button section - Styling the buttons text*/
+#start-btn ,#reset-btn , #resume-btn{
     border: none;
     background-color: #fff;
-    color: rgb(84, 245, 191);
     font-size: 30px;
     letter-spacing: 1px;
     font-weight: 600;
     cursor: pointer;
+    
 }
+
+/*Button section - disappearing buttons that appear after clicking start*/
+#after-start-btn{
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Button section - Styling the (after-start) buttons size*/
+#reset-btn , #resume-btn{
+    height: 100%;
+    flex-basis: 50%;
+}
+
+/*Button section - The start and reset buttons outline border color and text color*/
+#start-btn , #reset-btn{
+    outline-color: rgb(48, 190, 143);
+    color:rgb(48, 190, 143) ;
+}
+
+/*Button section - The resume button outline border color and text color*/
+#resume-btn{
+    outline-color: green;
+    color:green;
+}
+
