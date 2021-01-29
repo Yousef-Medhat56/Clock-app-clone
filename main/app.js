@@ -36,25 +36,24 @@ startStopBtn.addEventListener("click" ,function(){
     //Clicking Start button
     if (startStopBtn.textContent == "Start"){
         clickStart()
-        startStopBtn.textContent = "Stop"
-        startStopBtn.style.color ="red"
-        startStopBtn.style.outlineColor ="red"
+        startStopBtn.textContent = "Stop" //Changing the button text
+        startStopBtn.style.color ="red" //Changing the button text color
+        startStopBtn.style.outlineColor ="red" //Changing the button outline border color
     }
 
     //Clicking Stop buttons
     else if(startStopBtn.textContent == "Stop"){
         clickStop()
-        afterStartBtn.style.display = "flex"
-        startStopBtn.style.display = "none"
-        startStopBtn.style.outlineColor ="rgb(48, 190, 143)"
+        afterStartBtn.style.display = "flex" //Appearing the after-start div
+        startStopBtn.style.display = "none" // Removing stop button 
+        startStopBtn.style.outlineColor ="rgb(48, 190, 143)" //Changing the button outline border color
     }
     
 })
 
 //Clicking resume button
-resumeBtn.addEventListener("click",function(){
-    clickResume()
-}) 
+resumeBtn.addEventListener("click",clickResume) 
+
 //Clicking Reset button
 resetBtn.addEventListener("click" , clickRestart)
 
@@ -136,49 +135,53 @@ function stopwatCounter(){
 
 }
 
-
+//clicking stop button
 function clickStop(){
-    clearInterval(stopwatch)
-    clearInterval(lapStopwatch)
-    resumeBtn.textContent = "Resume"
-    resumeBtn.style.color = "green"
-    resetBtn.textContent = "Reset"
-
+    clearInterval(stopwatch) //Stopping the stopwatch counter
 }
 
+//clicking resume button
 function clickResume(){
-    stopwatch =setInterval(stopwatCounter,10)
-    
-    startStopBtn.style.outlineColor ="red"
-    afterStartBtn.style.display = "none"
-    startStopBtn.style.display = "block"
+    stopwatch =setInterval(stopwatCounter,10) //Returning the stopwatch counter to work
 }
 
-
-
+//clicking restart button
 function clickRestart(){
-    startStopBtn.style.outlineColor ="rgb(48, 190, 143)"
+    
+    //Stopping the stopwatch counter
+    clearInterval(stopwatch)
+    //Variables values
     hundredSec =0
     sec = 0
     min = 0
     hr = 0
+
+    //Buttons text
     hundredthSecond.textContent = "00"
     second.textContent = "0."
     minute.textContent = "0:"
-    
-    
-    clearInterval(stopwatch)
-    afterStartBtn.style.display = "none"
-    startStopBtn.style.display = "block"
-    startStopBtn.textContent = "Start"
-    startStopBtn.style.color = "rgb(48, 190, 143)"
-    
-    hundredthSecond.style.opacity = 0.5
+
+    //Buttons text - Appearing the zeros before seconds or minutes if they are removed
+    secondZero.style.display = "inline-block" 
+    minuteZero.style.display = "inline-block"
+
+    //Buttons text - Removing the hour section if it is appeared
+    hour.style.display = "none"
+    hourZero.style.display = "none"
+
+    //Buttons text - the stopwatch  counter opacity 
+    hundredthSecond.style.opacity = 0.5 
     second.style.opacity = 0.5
     secondZero.style.opacity = 0.5
     minute.style.opacity = 0.5
     minuteZero.style.opacity = 0.5
-    hour.style.display = "none"
-    hourZero.style.display = "none"
+    
+    
+    //Styles
+    afterStartBtn.style.display = "none" //Removing the after-start div
+    startStopBtn.style.display = "block" //Showing start button
+    startStopBtn.textContent = "Start" // The START button text
+    startStopBtn.style.color = "rgb(48, 190, 143)" // The START button text color
+    startStopBtn.style.outlineColor ="rgb(48, 190, 143)" // The START button outline border color
     
 }
