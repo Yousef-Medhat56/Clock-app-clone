@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    list-style: none;
+}
+
+/*The global container*/
+.container{
+    height: 100vh;
+    width : 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*The page head*/
+.head{
+    order:0;
+    flex-basis: 15%;
+    height : 15vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    position: relative;
+}
+
+/*The page head - making tiny grey border under it*/
+.head:before{
+    content:"";
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height:1px;
+    background-color: rgba(223, 217, 217, 0.712);
+    
+}
+
+/*The page head - logo div*/
+#head-logo{
+    order :0 ;
+    height : 7vh;
+    justify-content: center;
+}
+
+/*The page head - logo div - styling the logo*/
+#head-logo h2{
+    margin: 2vh 0 0 5%;
+    letter-spacing: 2px;
+}
+
+/*The page head - navbar div*/
+#head-nav-div{
+    order :1 ;
+    height : 6vh
+}
+
+/*The page head - navbar div - styling the <ul> tag*/
+#head-nav-list{
+    width:inherit;
+    height:inherit;
+    display: flex;
+    flex-direction: row;
+}
+
+/*The page head - navbar div - styling options*/
+#head-nav-list-element{
+    height: inherit;
+    width : 50%;
+    text-align:center;
+    
+    cursor: pointer;
+    position: relative;
+}
+
+/*The page head - Adding hover effect on nav-bar options*/
+#head-nav-list-element:hover{
+    color : rgb(48, 190, 143) ;
+}
+
+/*The page head - navbar div - styling options text*/
+#head-nav-list-element h4{
+    letter-spacing: 1px;
+}
+
+#head-nav-list-element a{
+    width:100%;
+    height: 100%;
+    
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
