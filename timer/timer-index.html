@@ -34,7 +34,7 @@
                 
                 <ul id="head-nav-list"> <!--The navbar - options-->
                     
-                    <li id="head-nav-list-element" ><a class = "stopwatch-li" class = "stopwatch-li" href = "../stopwatch/stopwatch-index.html"><h4>Stopwatch</h4></a></li> <!--The navbar - options : stopwatch(this file)-->
+                    <li id="head-nav-list-element" ><a class = "stopwatch-li" href = "../stopwatch/stopwatch-index.html"><h4>Stopwatch</h4></a></li> <!--The navbar - options : stopwatch(this file)-->
                     <li id="head-nav-list-element" ><a class = "timer-li" href = "../timer/timer-index.html"><h4>Timer</h4></a></li> <!--The navbar - options : stopwatch-->
                 </ul>
             </div>
@@ -46,57 +46,66 @@
             <!--Timer container | Time elements names-->
             <div id="time-elements-names">
                 <!--Time elements | Seconds-->
-                <h4>Seconds</h4>
+                <h4>Hours</h4>
                 <h2 id ="pseudo">:</h2>
                 <!--Time elements | Minutes-->
                 <h4>Minutes</h4>
                 <h2 id ="pseudo">:</h2>
                 <!--Time elements | Hours-->
-                <h4>Hours</h4>
+                <h4>Seconds</h4>
             </div>
 
             <!--Timer container | Decreasing Arrows-->
             <div id="arrows">
-                <button id= "increase-second"><i class="fas fa-angle-up"></i></button>
+                <button onclick = "changeTimeVal(hourDiv,99,-1)" id= "increase-hours"><i class="fas fa-angle-up"></i></button>
                 <h2 id ="pseudo">:</h2>
-                <button id= "increase-minutes"><i class="fas fa-angle-up"></i></button>
+                <button onclick = "changeTimeVal(minuteDiv,59,-1)" id= "increase-minutes"><i class="fas fa-angle-up"></i></button>
                 <h2 id ="pseudo">:</h2>
-                <button id= "increase-hours"><i class="fas fa-angle-up"></i></button>
+                <button onclick = "changeTimeVal(secondDiv,59,-1)" id= "increase-second"><i class="fas fa-angle-up"></i></button>
             </div>
 
             <!--Timer container | Time elements values-->
             <div id="time-elements-values">
-                <div id="time-element-second">
-                    <h2 class = "last second">58</h2>
-                    <h2 class = "above second">59</h2>
-                    <h2 class = "center second">00</h2>
-                    <h2 class = "above second">01</h2>
-                    <h2 class = "last second">02</h2>
-                </div> 
+
+                <!--Time elements values | hours-->
+                <div id="time-element-hour">
+                    <h2 class = "last hour">98</h2>
+                    <h2 class = "between hour">99</h2>
+                    <h2 class = "center hour">00</h2>
+                    <h2 class = "between hour">01</h2>
+                    <h2 class = "last hour">02</h2>
+                </div>
                 <h1>:</h1>
+                
+                <!--Time elements values | minutes-->
                 <div id="time-element-minuts">
                     <h2 class = "last minute">58</h2>
-                    <h2 class = "above minute">59</h2>
+                    <h2 class = "between minute">59</h2>
                     <h2 class = "center minute">00</h2>
-                    <h2 class = "above minute">01</h2>
+                    <h2 class = "between minute">01</h2>
                     <h2 class = "last minute">02</h2>
                 </div>
                 <h1>:</h1>
-                <div id="time-element-hour">
-                    <h2 class = "last hour">98</h2>
-                    <h2 class = "above hour">99</h2>
-                    <h2 class = "center hour">00</h2>
-                    <h2 class = "above hour">01</h2>
-                    <h2 class = "last hour">02</h2>
-                </div>
+                
+                <!--Time elements values | seconds-->
+                <div class="time-element-second">
+                    <h2 class = "last second">58</h2>
+                    <h2 class = "between second">59</h2>
+                    <h2 class = "center second">00</h2>
+                    <h2 class = "between second">01</h2>
+                    <h2 class = "last second">02</h2>
+                </div> 
             </div>
             <!--Timer container | Increasing Arrows-->
             <div id="arrows">
-                <button id= "decrease-seconds"><i class="fas fa-angle-down"></i></button>
+                <!--Increasing Arrows | Hours-->
+                <button onclick = "changeTimeVal(hourDiv,99,1)" id= "changeTimeVal-hours"><i class="fas fa-angle-down"></i></button>
                 <h2 id ="pseudo">:</h2>
-                <button id= "decrease-minutes"><i class="fas fa-angle-down"></i></button>
+                <!--Increasing Arrows | minutes-->
+                <button onclick = "changeTimeVal(minuteDiv,59,1)" id= "changeTimeVal-minutes"><i class="fas fa-angle-down"></i></button>
                 <h2 id ="pseudo">:</h2>
-                <button id= "decrease-hours"><i class="fas fa-angle-down"></i></button>
+                <!--Increasing Arrows | seconds-->
+                <button onclick = "changeTimeVal(secondDiv,59,1)" id= "changeTimeVal-seconds"><i class="fas fa-angle-down"></i></button>
             </div>
             </div>
         </section>
@@ -106,11 +115,12 @@
     <!--local style-->
     <style type="text/css">
     
-        /* styling the (stopwatch) option */
+        /* styling the (timer) option */
         .timer-li{  
             color :rgb(48, 190, 143); 
         }
-       /*Making tiny colorful border under  (stopwatch) option*/
+
+       /*Making tiny colorful border under  (timer) option*/
         .timer-li:before{
             content:"";
             position: absolute;
@@ -119,14 +129,14 @@
             width: 100%;
             height:2px;
             background-color: rgb(48, 190, 143) 
-        }       
+        }
         
         .stopwatch-li{
-            color:black
+            color:#000
         }
-     </style>
-
-     <!--JavaScript-->
-     <script src="timer-script.js"></script>
+        </style>
+        
+        <!--JavaScript-->
+        <script src="timer-script.js"></script>
 </body>
 </html>
