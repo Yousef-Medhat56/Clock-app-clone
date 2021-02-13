@@ -5,6 +5,7 @@ const secondDiv= document.querySelectorAll(".second")
 const minuteDiv= document.querySelectorAll(".minute")
 const hourDiv= document.querySelectorAll(".hour")
 
+
 //Functions
 
 /*Functions - Changing the time element values
@@ -40,3 +41,35 @@ function writingZero(timerDiv,timeElementOrder){
         timerDiv[timeElementOrder].textContent = `0${parseInt(timerDiv[timeElementOrder].textContent)}`
     }
 }
+
+
+
+//BUTTONS
+
+//Buttons | start button
+function clickStart(){
+    document.getElementById("start-btn-div").style.display = "none" //Hiding start button
+    document.getElementById("after-start-btn-div").style.display = "flex" //Showing Reset and Stop buttons 
+}
+
+//Buttons | Reset button
+function clickReset(){
+    window.location.reload() //Reloading the page
+}
+
+//Buttons | Stop & Resume button
+function clickStopResume(){
+    //Hiding Stop button and Showing Resume
+    if (document.getElementById("stop-btn") != null){
+        document.getElementById("stop-btn").textContent = "Resume" 
+        document.getElementById("stop-btn").setAttribute("id","resume-btn") //Adding Id to the Resume button to the ID add styles on it
+    }
+
+    //Hiding Resume button and Showing Stop
+    else if (document.getElementById("stop-btn") == null){
+        document.getElementById("resume-btn").textContent = "Stop"
+        document.getElementById("resume-btn").setAttribute("id","stop-btn") //Adding Id to the Stop button to the ID add styles on it
+    }
+
+}
+
