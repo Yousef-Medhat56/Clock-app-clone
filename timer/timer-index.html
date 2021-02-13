@@ -57,7 +57,7 @@
 
             <!--Timer container | Decreasing Arrows-->
             <div id="arrows">
-                <button onclick = "changeTimeVal(hourDiv,99,-1)" id= "increase-hours"><i class="fas fa-angle-up"></i></button>
+                <button onclick = "changeTimeVal(hourDiv,23,-1)" id= "increase-hours"><i class="fas fa-angle-up"></i></button>
                 <h2 id ="pseudo">:</h2>
                 <button onclick = "changeTimeVal(minuteDiv,59,-1)" id= "increase-minutes"><i class="fas fa-angle-up"></i></button>
                 <h2 id ="pseudo">:</h2>
@@ -69,8 +69,8 @@
 
                 <!--Time elements values | hours-->
                 <div id="time-element-hour">
-                    <h2 class = "last hour">98</h2>
-                    <h2 class = "between hour">99</h2>
+                    <h2 class = "last hour">22</h2>
+                    <h2 class = "between hour">23</h2>
                     <h2 class = "center hour">00</h2>
                     <h2 class = "between hour">01</h2>
                     <h2 class = "last hour">02</h2>
@@ -99,7 +99,7 @@
             <!--Timer container | Increasing Arrows-->
             <div id="arrows">
                 <!--Increasing Arrows | Hours-->
-                <button onclick = "changeTimeVal(hourDiv,99,1)" id= "changeTimeVal-hours"><i class="fas fa-angle-down"></i></button>
+                <button onclick = "changeTimeVal(hourDiv,23,1)" id= "changeTimeVal-hours"><i class="fas fa-angle-down"></i></button>
                 <h2 id ="pseudo">:</h2>
                 <!--Increasing Arrows | minutes-->
                 <button onclick = "changeTimeVal(minuteDiv,59,1)" id= "changeTimeVal-minutes"><i class="fas fa-angle-down"></i></button>
@@ -107,6 +107,21 @@
                 <!--Increasing Arrows | seconds-->
                 <button onclick = "changeTimeVal(secondDiv,59,1)" id= "changeTimeVal-seconds"><i class="fas fa-angle-down"></i></button>
             </div>
+            </div>
+        </section>
+    
+        <!--Buttons-->
+        <section class="buttons">
+            <!--Buttons | start button-->
+            <div id="start-btn-div">
+                <button onclick ="startBtn()" id = "start-btn">Start</button>
+            </div>
+            
+            <div id="after-start-btn-div"> <!--Buttons that appear after clicking start-->
+                <!--Buttons | reset button-->
+                <button onclick = "resetBtn()" id = "reset-btn">Reset</button>
+                <!--Buttons | stop and resume button-->
+                <button  id = "stop-btn">Stop</button>
             </div>
         </section>
 
