@@ -119,13 +119,68 @@
     visibility: hidden;
 }
 
+/*Container | Buttons*/
+.buttons{
+    order:2;
+    flex-basis: 9%;
+    width:99%;
+    margin: 0 auto ;
+}
 
+/*Styling Buttons div*/
+#start-btn-div,
+#start-btn-div button,
+#after-start-btn-div{
+    height: 100%;
+    width:100%;
+}
 
+/*Buttons | Hiding buttons that appear after clicking start*/
+#after-start-btn-div{
+    display: none;
+    justify-content: space-between;
+}
 
+/*Buttons | Styling the common properties between buttons*/
+#start-btn-div button ,
+#after-start-btn-div button{
+    border: none;
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight:600 ;
+    background-color: #fff;
+    cursor: pointer;
+}
 
+/*Start button | text and outline color*/
+#start-btn-div button{
+    color: rgb(48, 190, 143);
+    outline-color: rgb(48, 190, 143);
+}
 
+/*After start buttons | Buttons size*/
+#after-start-btn-div button{
+    flex:48%;
+    transition: all 0.3s ease;
+}
 
+/*Reset button | text and outline color*/
+#reset-btn{
+    color:rgb(48, 190, 143);
+    outline-color:rgb(48, 190, 143);
+}
 
+/*Stop button | text and outline color*/
+#stop-btn{
+    color:red;
+    outline-color:red;
+}
+
+/*Resume button | text and outline color*/
+#resume-btn{
+    color:green;
+    outline-color:green;
+}
 
 
 
