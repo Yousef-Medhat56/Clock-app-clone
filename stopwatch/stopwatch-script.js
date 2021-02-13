@@ -143,6 +143,9 @@ function clickStop(){
 //clicking resume button
 function clickResume(){
     stopwatch =setInterval(stopwatCounter,10) //Returning the stopwatch counter to work
+    afterStartBtn.style.display = "none" //Appearing the after-start div
+    startStopBtn.style.display = "block"
+    startStopBtn.style.outlineColor ="red" //Changing the button outline border color 
 }
 
 //clicking restart button
