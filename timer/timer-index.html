@@ -108,20 +108,28 @@
                 <button onclick = "changeTimeVal(secondDiv,59,1)" id= "changeTimeVal-seconds"><i class="fas fa-angle-down"></i></button>
             </div>
             </div>
+
+            <!--Timer countdown div-->
+            <div id="timer-countdown">
+                <svg id = "circles-container">
+                    <circle cy="50%" cx = "50%" r = "30%"id = "timer-bottom-circle"></circle>
+                    <circle cy="50%" cx = "50%" r = "30%"id = "timer-top-circle"></circle>
+                </svg>
+            </div>
         </section>
     
         <!--Buttons-->
         <section class="buttons">
             <!--Buttons | start button-->
             <div id="start-btn-div">
-                <button onclick ="startBtn()" id = "start-btn">Start</button>
+                <button onclick ="clickStart()" id = "start-btn">Start</button>
             </div>
             
             <div id="after-start-btn-div"> <!--Buttons that appear after clicking start-->
                 <!--Buttons | reset button-->
-                <button onclick = "resetBtn()" id = "reset-btn">Reset</button>
+                <button onclick = "clickReset()" id = "reset-btn">Reset</button>
                 <!--Buttons | stop and resume button-->
-                <button  id = "stop-btn">Stop</button>
+                <button  onclick = "clickStopResume()"id = "stop-btn">Stop</button>
             </div>
         </section>
 
