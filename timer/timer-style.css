@@ -4,10 +4,13 @@
     order:1;
     height: 75vh;
     width:100%;
+    overflow: hidden;
     display:flex;
     justify-content: center;
     align-items: center;
+    perspective: 100px;
 }
+
 
 /*The timer elements block*/
 #timer-block{
@@ -185,6 +188,59 @@
 
 
 
+/*Timer countdown div*/
+#timer-countdown{
+    width:70%;
+    height:100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+}
+
+#timer-countdown svg{
+   
+    width:100%;
+    height:100%;
+    animation: timer-circle 1.5s ease-out forwards 
+
+}
+
+@keyframes timer-circle{
+    to{
+        transform: translateZ(100px);
+    }
+}
+#timer-countdown svg circle{
+    
+    stroke-width: 10px;
+    stroke:rgb(48, 190, 143);
+    fill: none;
+}
+
+@media screen and (max-width :1250px){
+    #timer-countdown{
+        width:85%;
+        height:105%
+    }
+}
+@media screen and (max-width :1100px){
+    #timer-countdown{
+        width:95%;
+        height:115%
+    }
+}
+@media screen and (max-width :900px){
+    #timer-countdown{
+        width:100%;
+        height:140%
+    }
+}
 
 
-
+@media screen and (max-width :750px){
+    #timer-countdown{
+        width:100%;
+        height:120%
+    }
+}
