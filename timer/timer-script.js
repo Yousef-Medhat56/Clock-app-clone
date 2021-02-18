@@ -42,14 +42,34 @@ function writingZero(timerDiv,timeElementOrder){
     }
 }
 
+//Functions | Onclick buttons
+//Onclick buttons | Start
 
+function showingCountDown(){
+    document.getElementById("timer-block").style.display = "none" //Hiding timer block div
+    document.getElementById("timer-countdown").style.display = "flex" //Showing the countdown
 
+}
+function showingResStopBtn(){
+    document.getElementById("start-btn-div").style.display = "none" //Hiding start button
+    document.getElementById("after-start-btn-div").style.display = "flex" //Showing Reset and Stop buttons 
+}
+
+function writeChosenTime(){
+    document.getElementById("countdown-hour").textContent = document.getElementById("center-hour").textContent
+    document.getElementById("countdown-minute").textContent = document.getElementById("center-minute").textContent
+    document.getElementById("countdown-second").textContent = document.getElementById("center-second").textContent
+}
 //BUTTONS
 
 //Buttons | start button
 function clickStart(){
-    document.getElementById("start-btn-div").style.display = "none" //Hiding start button
-    document.getElementById("after-start-btn-div").style.display = "flex" //Showing Reset and Stop buttons 
+    
+    writeChosenTime()
+    showingResStopBtn()
+    showingCountDown()
+    
+    
 }
 
 //Buttons | Reset button
