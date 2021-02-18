@@ -193,22 +193,40 @@
     width:70%;
     height:100%;
     display: none;
+    position: relative;
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
+}
+
+#countdown-elements{
+    height: 200px;
+    font-size: 50px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    position: absolute;
+    top: calc(50% - 100px);
+    animation: countdown-begin-anim 0.8s ease-out forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(48, 190, 143);
 }
 
 #timer-countdown svg{
    
     width:100%;
     height:100%;
-    animation: timer-circle 1.5s ease-out forwards 
-
+    animation: countdown-begin-anim 0.8s ease-out forwards ;
+    
 }
 
-@keyframes timer-circle{
+@keyframes countdown-begin-anim{
+    from{
+        transform: translateZ(60px);
+    }
     to{
-        transform: translateZ(100px);
+        transform: translateZ(0);
     }
 }
 #timer-countdown svg circle{
