@@ -71,7 +71,7 @@
                 <div id="time-element-hour">
                     <h2 class = "last hour">22</h2>
                     <h2 class = "between hour">23</h2>
-                    <h2 class = "center hour">00</h2>
+                    <h2 class = "center hour" id ="center-hour">00</h2>
                     <h2 class = "between hour">01</h2>
                     <h2 class = "last hour">02</h2>
                 </div>
@@ -81,7 +81,7 @@
                 <div id="time-element-minuts">
                     <h2 class = "last minute">58</h2>
                     <h2 class = "between minute">59</h2>
-                    <h2 class = "center minute">00</h2>
+                    <h2 class = "center minute" id ="center-minute">00</h2>
                     <h2 class = "between minute">01</h2>
                     <h2 class = "last minute">02</h2>
                 </div>
@@ -91,7 +91,7 @@
                 <div class="time-element-second">
                     <h2 class = "last second">58</h2>
                     <h2 class = "between second">59</h2>
-                    <h2 class = "center second">00</h2>
+                    <h2 class = "center second" id ="center-second">00</h2>
                     <h2 class = "between second">01</h2>
                     <h2 class = "last second">02</h2>
                 </div> 
@@ -115,6 +115,8 @@
                     <circle cy="50%" cx = "50%" r = "30%"id = "timer-bottom-circle"></circle>
                     <circle cy="50%" cx = "50%" r = "30%"id = "timer-top-circle"></circle>
                 </svg>
+                <div id="countdown-elements"><span id="countdown-hour"></span>:<span id="countdown-minute"></span>:
+                    <span id="countdown-second"></span></div>
             </div>
         </section>
     
