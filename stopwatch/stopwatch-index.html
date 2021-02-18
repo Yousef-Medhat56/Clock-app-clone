@@ -8,13 +8,12 @@
     <title>Clock | Stopwatch</title>
 
     <!--Style-->
-    <link rel="stylesheet" href="main-style.css">
+    <link rel="stylesheet" href="../main-style.css">
+    <link rel="stylesheet" href="stopwatch-style.css">
     
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    
-    
     
 </head>
 
@@ -30,8 +29,8 @@
                 
                 <ul id="head-nav-list"> <!--The navbar - options-->
                     
-                    <li id="head-nav-list-element" class = "stopwatch-li"><h4>Stopwatch</h4></li> <!--The navbar - options : stopwatch(this file)-->
-                    <li id="head-nav-list-element" class = "timer-li"><h4>Timer</h4></li> <!--The navbar - options : stopwatch-->
+                    <li id="head-nav-list-element" ><a class = "stopwatch-li" class = "stopwatch-li" href = "../stopwatch/stopwatch-index.html"><h4>Stopwatch</h4></a></li> <!--The navbar - options : stopwatch(this file)-->
+                    <li id="head-nav-list-element" ><a class = "timer-li" href = "../timer/timer-index.html"><h4>Timer</h4></a></li> <!--The navbar - options : stopwatch-->
                 </ul>
             </div>
         </section>
@@ -66,18 +65,22 @@
             color :rgb(48, 190, 143); 
         }
        /*Making tiny colorful border under  (stopwatch) option*/
-        .stopwatch-li:before{
+        .head:after{
             content:"";
             position: absolute;
             left:0;
-            bottom:-15px;
-            width: 100%;
+            bottom:0;
+            width: 50%;
             height:2px;
             background-color: rgb(48, 190, 143) 
-        }                     
+        }        
+        
+        .timer-li{
+            color:black;
+        }
      </style>
 
      <!--JavaScript-->
-     <script src="app.js"></script>
+     <script src="stopwatch-script.js"></script>
 </body>
 </html>

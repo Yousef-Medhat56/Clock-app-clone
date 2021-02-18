@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--page title - timer-->
-    <title>Clock | Timer</title>
+    <title id = "title">Clock | Timer</title>
 
     <!--Style-->
     <link rel="stylesheet" href="../main-style.css">
@@ -124,7 +124,7 @@
         <section class="buttons">
             <!--Buttons | start button-->
             <div id="start-btn-div">
-                <button onclick ="clickStart()" id = "start-btn">Start</button>
+                <button  id = "start-btn">Start</button>
             </div>
             
             <div id="after-start-btn-div"> <!--Buttons that appear after clicking start-->
@@ -146,19 +146,21 @@
         }
 
        /*Making tiny colorful border under  (timer) option*/
-        .timer-li:before{
+        .head:after{
             content:"";
             position: absolute;
-            left:0;
-            bottom:-15px;
-            width: 100%;
+            right:0;
+            bottom:0;
+            width: 50%;
             height:2px;
-            background-color: rgb(48, 190, 143) 
+            background-color: rgb(48, 190, 143) ;
+            transition: 0.5s ease;
         }
         
         .stopwatch-li{
             color:#000
         }
+        
         </style>
         
         <!--JavaScript-->
