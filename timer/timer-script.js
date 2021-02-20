@@ -104,13 +104,14 @@ function startCountdown(){
         countdownSec.textContent-- //decreasing the seconds value by 1
         timeMinVal(countdownSec,countdownMin)
         timeMinVal(countdownMin,countdownHour)
-
+        reduceCircleStroke()
         //adding zeros before time elements if their value are less than 10
         writingZero(document.querySelectorAll("#countdown-elements span"),2)
         writingZero(document.querySelectorAll("#countdown-elements span"),1)
         writingZero(document.querySelectorAll("#countdown-elements span"),0)
         
         finishCountdown()
+        
     },1000)
 }
 
@@ -133,11 +134,23 @@ function finishCountdown(){
     if((countdownSec.textContent ==0)&&
     (countdownMin.textContent ==0)&&
     (countdownHour.textContent ==0)){
+    document.getElementById("timer-top-circle").style.strokeDashoffset = (document.getElementById("timer-top-circle").getTotalLength())
         clearInterval(countDown)
+        
     }
 }
 
+//Countdown functions | circle animation
+document.getElementById("timer-top-circle").style.strokeDashoffset = 0
+function reduceCircleStroke(){
+    let circleLength= (document.getElementById("timer-top-circle").getTotalLength())
 
+    let reducingAmount = (parseInt(centerHour.textContent) * 60) + (parseInt(centerMin.textContent) * 60) + parseInt(centerSec.textContent)
+    document.getElementById("timer-top-circle").style.strokeDasharray = (document.getElementById("timer-top-circle").getTotalLength())
+    
+    document.getElementById("timer-top-circle").style.strokeDashoffset= parseInt(document.getElementById("timer-top-circle").style.strokeDashoffset.valueOf())+  (circleLength/reducingAmount) 
+    
+} 
 
 //BUTTONS
 
@@ -149,6 +162,7 @@ function clickStart(){
     showingResStopBtn()
     showingCountDown()
     startCountdown()
+    
 }
 
 //Buttons | Reset button
