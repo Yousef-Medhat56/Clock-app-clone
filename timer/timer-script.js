@@ -67,14 +67,53 @@ function styleStartBtn(){
     (centerSec.textContent ==0)){
         startBtn.style.opacity = 0.5;
         startBtn.style.cursor = "default";
+        startBtn.style.borderColor = "rgba(0, 0, 0, 0)"
         startBtn.removeEventListener("click",clickStart)
     }
 
     else{
         startBtn.style.opacity = 1;
         startBtn.style.cursor = "pointer";
+        startBtn.style.borderColor = "rgb(48, 190, 143)"
         startBtn.addEventListener("click",clickStart)
 }
+}
+
+//Functions | Styling the countdown cicle start and finish
+//Countdown Circle | Styling circle at countdown start
+function styleCircleStart(){
+    document.getElementById("circles-container").style.transform = "rotate(270deg) translateZ(0px)"
+    document.getElementById("timer-top-circle").style.stroke = "rgb(48, 190, 143)"
+    document.getElementById("timer-top-circle").style.strokeDashoffset = 0
+    document.getElementById("countdown-elements").style.transform = "translateZ(0px)"
+}
+
+//Countdown Circle | Styling circle at countdown finish
+function styleCircleFinish(){
+    document.getElementById("circles-container").style.transform = "rotate(270deg) translateZ(60px)"
+    document.getElementById("countdown-elements").style.transform = "translateZ(60px)"
+}
+
+//Functions | The styles after countdown finish or clicking restart 
+function countdownFinish(){
+    showStopBtn()
+    showMainPage()
+}
+
+//The styles after countdown finish or clicking restart | Showing the Stop button next to the Reset button
+function showStopBtn(){
+    document.querySelectorAll("#after-start-btn-div button")[1].setAttribute("id","stop-btn")
+    document.querySelectorAll("#after-start-btn-div button")[1].textContent = "Stop"
+}
+
+//The styles after countdown finish or clicking restart | style buttons section
+function showMainPage(){
+    document.getElementById("after-start-btn-div").style.display = "none" //removing Reset, Stop and Resume buttons
+    document.getElementById("circles-container").addEventListener("transitionend",function(){ 
+    document.getElementById("timer-block").style.display = "flex" //Showing timer block div
+    document.getElementById("timer-countdown").style.display = "none" //Hiding timer countdown div
+    document.getElementById("start-btn-div").style.display = "block" //Showing start button
+})
 }
 //Functions | Onclick buttons
 //Onclick buttons | Start button functions
@@ -134,21 +173,24 @@ function finishCountdown(){
     if((countdownSec.textContent ==0)&&
     (countdownMin.textContent ==0)&&
     (countdownHour.textContent ==0)){
-    document.getElementById("timer-top-circle").style.strokeDashoffset = (document.getElementById("timer-top-circle").getTotalLength())
+        document.getElementById("timer-top-circle").style.stroke = "none"
+        styleCircleFinish()
+        countdownFinish()
         clearInterval(countDown)
-        
+        //countdownFinish()
     }
 }
 
-//Countdown functions | circle animation
-document.getElementById("timer-top-circle").style.strokeDashoffset = 0
-function reduceCircleStroke(){
-    let circleLength= (document.getElementById("timer-top-circle").getTotalLength())
+//Countdown functions | increasing the circle strokeDashoffset during countdown
 
-    let reducingAmount = (parseInt(centerHour.textContent) * 60) + (parseInt(centerMin.textContent) * 60) + parseInt(centerSec.textContent)
-    document.getElementById("timer-top-circle").style.strokeDasharray = (document.getElementById("timer-top-circle").getTotalLength())
+function reduceCircleStroke(){
+    let circleLength= (document.getElementById("timer-top-circle").getTotalLength()) //The circle total length
+    let reducingAmount = (parseInt(centerHour.textContent) * 3600) + 
+    (parseInt(centerMin.textContent) * 60) + parseInt(centerSec.textContent) //The sum of chosen  hours ,minutes and seconds and turning the sum to seconds
+    document.getElementById("timer-top-circle").style.strokeDasharray = (document.getElementById("timer-top-circle").getTotalLength()) //setting the circle strokeDasharray
     
-    document.getElementById("timer-top-circle").style.strokeDashoffset= parseInt(document.getElementById("timer-top-circle").style.strokeDashoffset.valueOf())+  (circleLength/reducingAmount) 
+    //Setting the increasing value of circle strokeDashoffset
+    document.getElementById("timer-top-circle").style.strokeDashoffset= (parseFloat(document.getElementById("timer-top-circle").style.strokeDashoffset.valueOf())+  (-(circleLength/reducingAmount)) )
     
 } 
 
@@ -158,28 +200,39 @@ function reduceCircleStroke(){
 
 
 function clickStart(){
-    writeChosenTime()
-    showingResStopBtn()
     showingCountDown()
+    styleCircleStart()
+    writeChosenTime()
+    document.getElementById("start-btn-div").style.display = "none"
     startCountdown()
-    
+    document.getElementById("circles-container").addEventListener("animationend",function(){
+    showingResStopBtn()
+})
 }
 
 //Buttons | Reset button
 function clickReset(){
-    window.location.reload() //Reloading the page
+    styleCircleFinish()
+    countdownFinish()
+    clearInterval(countDown)
+}
+//Buttons | Stop button
+function clickStop(){
+    clearInterval(countDown)
 }
 
 //Buttons | Stop & Resume button
 function clickStopResume(){
     //Hiding Stop button and Showing Resume
     if (document.getElementById("stop-btn") != null){
+        clickStop()
         document.getElementById("stop-btn").textContent = "Resume" 
         document.getElementById("stop-btn").setAttribute("id","resume-btn") //Adding Id to the Resume button to the ID add styles on it
     }
 
     //Hiding Resume button and Showing Stop
     else if (document.getElementById("stop-btn") == null){
+        startCountdown()
         document.getElementById("resume-btn").textContent = "Stop"
         document.getElementById("resume-btn").setAttribute("id","stop-btn") //Adding Id to the Stop button to the ID add styles on it
     }
