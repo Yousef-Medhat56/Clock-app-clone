@@ -1,5 +1,7 @@
 /*Timer section*/
-
+*::selection{
+    background-color: rgba(48, 190, 143, 0.61);
+}
 .timer{
     order:1;
     height: 75vh;
@@ -8,7 +10,8 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    perspective: 100px;
+    
+    
 }
 
 
@@ -128,6 +131,16 @@
     flex-basis: 9%;
     width:99%;
     margin: 0 auto ;
+    position: relative;
+}
+
+.buttons:before{
+    content:"";
+    height: 1px;
+    width:100%;
+    position: absolute;
+    top:0;
+    background-color:rgba(180, 177, 177, 0.753)
 }
 
 /*Styling Buttons div*/
@@ -152,37 +165,58 @@
     letter-spacing: 1px;
     font-weight:600 ;
     background-color: #fff;
-    cursor: pointer;
+    outline: none;
+    
 }
 
+#start-btn{
+    opacity: 0.5;
+}
 /*Start button | text and outline color*/
 #start-btn-div button{
     color: rgb(48, 190, 143);
-    outline-color: rgb(48, 190, 143);
 }
+#start-btn-div button:hover{
+    border:2px solid rgba(0, 0, 0, 0);
+}
+ #reset-btn:hover{
+    border:2px solid rgb(48, 190, 143);
+}
+
 
 /*After start buttons | Buttons size*/
 #after-start-btn-div button{
     flex:48%;
-    transition: all 0.3s ease;
+    
+    cursor: pointer;
+    
 }
+
 
 /*Reset button | text and outline color*/
 #reset-btn{
     color:rgb(48, 190, 143);
-    outline-color:rgb(48, 190, 143);
+    
 }
 
 /*Stop button | text and outline color*/
 #stop-btn{
     color:red;
-    outline-color:red;
+    
+}
+
+#stop-btn:hover{
+    border: 2px solid red;
 }
 
 /*Resume button | text and outline color*/
 #resume-btn{
     color:green;
-    outline-color:green;
+    
+}
+
+#resume-btn:hover{
+    border:2px solid green
 }
 
 
@@ -193,9 +227,10 @@
     width:70%;
     height:100%;
     display: none;
-    position: relative;
+    overflow: hidden;
     align-items: center;
     justify-content: center;
+    perspective: 100px;
     transform-style: preserve-3d;
 }
 
@@ -206,18 +241,28 @@
     font-weight: 500;
     position: absolute;
     top: calc(50% - 100px);
-    animation: countdown-begin-anim 0.8s ease-out forwards;
+    animation: countdown-begin-anim 0.8s ease-out 1;
+    transition:transform 0.8s ease-in;
     display: flex;
     align-items: center;
     justify-content: center;
     color: rgb(48, 190, 143);
+    
 }
 
+#countdown-elements span{
+    
+    display: block;
+    
+}
 #timer-countdown svg{
-   
+    transform: rotate(270deg);
+    transition:transform 0.8s ease-in;
     width:100%;
     height:100%;
-    animation: countdown-begin-anim 0.8s ease-out forwards ;
+    overflow: visible;
+    animation: countdown-begin-anim 0.8s ease-out 1 ;
+    
     
 }
 
@@ -230,10 +275,15 @@
     }
 }
 #timer-countdown svg circle{
-    
+    transition:transform 0.8s ease-in;
     stroke-width: 10px;
-    stroke:rgb(48, 190, 143);
+    transform-origin: center;
     fill: none;
+    
+}
+
+#timer-bottom-circle{
+    stroke: lightgrey;
 }
 
 @media screen and (max-width :1250px){
