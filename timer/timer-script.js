@@ -177,7 +177,8 @@ function finishCountdown(){
         styleCircleFinish()
         countdownFinish()
         clearInterval(countDown)
-        //countdownFinish()
+        document.getElementById("countdown-finish-sound").play()
+        
     }
 }
 
