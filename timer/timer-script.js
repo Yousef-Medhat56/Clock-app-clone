@@ -168,24 +168,51 @@ function timeMinVal(timElmntUndZero,decreasedTimElmnt){
     }
 }
 
-//Countdown functions | //check if the countdown is finished
+//Countdown functions | check if the countdown is finished
 function finishCountdown(){ 
+    
+    let confirmMes //declaring confirm message
     if((countdownSec.textContent ==0)&&
     (countdownMin.textContent ==0)&&
     (countdownHour.textContent ==0)){
-        document.getElementById("timer-top-circle").style.stroke = "none"
-        styleCircleFinish()
-        countdownFinish()
-        clearInterval(countDown)
-        document.getElementById("countdown-finish-sound").play()
-        
-    }
+
+        document.getElementById("timer-top-circle").style.stroke = "none" //removing top circle stroke
+        document.getElementById("after-start-btn-div").style.display = "none" //removing Stop and Reset buttons 
+        clearInterval(countDown) 
+        document.getElementById("countdown-finish-sound").play() //Playing the bell sound 
+        document.getElementById("countdown-finish-sound").onplay = ()=>{  //showing the confirm 
+            showConfirmMes() 
+        }
+    } 
 }
 
+//Countdown functions | check if the countdown is finished | showing the confirm message
+function showConfirmMes(){
+    //confirm message text
+    confirmMes = window.confirm(`Time Is Up \n${centerHour.textContent}:${centerMin.textContent}:${centerSec.textContent} \nDo you want to repeat it again?`)
+    repCloseCountdown() 
+}
+
+//Countdown functions | check if the countdown is finished | confirm message | Repeat the countdown or close it
+function repCloseCountdown(){
+    if (confirmMes == true){ //repeat the countdown
+        
+        styleCircleStart()
+        writeChosenTime()
+        startCountdown()
+        showingResStopBtn()
+        
+           
+    }
+    else{ //close the countdown
+        styleCircleFinish()
+        countdownFinish()
+    }
+}
 //Countdown functions | increasing the circle strokeDashoffset during countdown
 
 function reduceCircleStroke(){
-    let circleLength= (document.getElementById("timer-top-circle").getTotalLength()) //The circle total length
+    let circleLength= (document.getElementById("timer-bottom-circle").getTotalLength()) //The circle total length
     let reducingAmount = (parseInt(centerHour.textContent) * 3600) + 
     (parseInt(centerMin.textContent) * 60) + parseInt(centerSec.textContent) //The sum of chosen  hours ,minutes and seconds and turning the sum to seconds
     document.getElementById("timer-top-circle").style.strokeDasharray = (document.getElementById("timer-top-circle").getTotalLength()) //setting the circle strokeDasharray
