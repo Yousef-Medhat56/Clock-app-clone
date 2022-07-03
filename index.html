@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--page title - timer-->
+    <title id="title">Clock | Timer</title>
+
+    <!--Style-->
+    <link rel="stylesheet" href="main-style.css">
+    <link rel="stylesheet" href="timer/timer-style.css">
+
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+
+</head>
+
+<body>
+    <section class="container">
+        <!--The page container-->
+        <!--The page head-->
+        <section class="head">
+            <div id="head-logo">
+                <!--The logo-->
+                <h2>Clock</h2>
+            </div>
+
+            <div id="head-nav-div">
+                <!--The navbar-->
+
+                <ul id="head-nav-list">
+                    <!--The navbar - options-->
+
+                    <li id="head-nav-list-element">
+                        <a class="stopwatch-li" href="stopwatch/index.html">
+                            <h4>Stopwatch</h4>
+                        </a>
+                    </li>
+                    <!--The navbar - options : stopwatch(this file)-->
+                    <li id="head-nav-list-element">
+                        <a class="timer-li" href="index.html">
+                            <h4>Timer</h4>
+                        </a>
+                    </li>
+                    <!--The navbar - options : stopwatch-->
+                </ul>
+            </div>
+        </section>
+
+        <!--Timer container-->
+        <section class="timer">
+            <div id="timer-block">
+                <!--Timer container | Time elements names-->
+                <div id="time-elements-names">
+                    <!--Time elements | Seconds-->
+                    <h4>Hours</h4>
+                    <h2 id="pseudo">:</h2>
+                    <!--Time elements | Minutes-->
+                    <h4>Minutes</h4>
+                    <h2 id="pseudo">:</h2>
+                    <!--Time elements | Hours-->
+                    <h4>Seconds</h4>
+                </div>
+
+                <!--Timer container | Decreasing Arrows-->
+                <div id="arrows">
+                    <button onclick="changeTimeVal(hourDiv,23,-1)" id="increase-hours"><i class="fas fa-angle-up"></i></button>
+                    <h2 id="pseudo">:</h2>
+                    <button onclick="changeTimeVal(minuteDiv,59,-1)" id="increase-minutes"><i class="fas fa-angle-up"></i></button>
+                    <h2 id="pseudo">:</h2>
+                    <button onclick="changeTimeVal(secondDiv,59,-1)" id="increase-second"><i class="fas fa-angle-up"></i></button>
+                </div>
+
+                <!--Timer container | Time elements values-->
+                <div id="time-elements-values">
+
+                    <!--Time elements values | hours-->
+                    <div id="time-element-hour">
+                        <h2 class="last hour">22</h2>
+                        <h2 class="between hour">23</h2>
+                        <h2 class="center hour" id="center-hour">00</h2>
+                        <h2 class="between hour">01</h2>
+                        <h2 class="last hour">02</h2>
+                    </div>
+                    <h1>:</h1>
+
+                    <!--Time elements values | minutes-->
+                    <div id="time-element-minuts">
+                        <h2 class="last minute">58</h2>
+                        <h2 class="between minute">59</h2>
+                        <h2 class="center minute" id="center-minute">00</h2>
+                        <h2 class="between minute">01</h2>
+                        <h2 class="last minute">02</h2>
+                    </div>
+                    <h1>:</h1>
+
+                    <!--Time elements values | seconds-->
+                    <div class="time-element-second">
+                        <h2 class="last second">58</h2>
+                        <h2 class="between second">59</h2>
+                        <h2 class="center second" id="center-second">00</h2>
+                        <h2 class="between second">01</h2>
+                        <h2 class="last second">02</h2>
+                    </div>
+                </div>
+                <!--Timer container | Increasing Arrows-->
+                <div id="arrows">
+                    <!--Increasing Arrows | Hours-->
+                    <button onclick="changeTimeVal(hourDiv,23,1)" id="changeTimeVal-hours"><i class="fas fa-angle-down"></i></button>
+                    <h2 id="pseudo">:</h2>
+                    <!--Increasing Arrows | minutes-->
+                    <button onclick="changeTimeVal(minuteDiv,59,1)" id="changeTimeVal-minutes"><i class="fas fa-angle-down"></i></button>
+                    <h2 id="pseudo">:</h2>
+                    <!--Increasing Arrows | seconds-->
+                    <button onclick="changeTimeVal(secondDiv,59,1)" id="changeTimeVal-seconds"><i class="fas fa-angle-down"></i></button>
+                </div>
+            </div>
+
+            <!--Timer countdown div-->
+            <div id="timer-countdown">
+                <svg id="circles-container">
+                    <circle cy="50%" cx = "50%" r = "30%"id = "timer-bottom-circle"></circle>
+                    <circle cy="50%" cx = "50%" r = "30%"id = "timer-top-circle"></circle>
+                </svg>
+                <div id="countdown-elements"><span id="countdown-hour"></span>:<span id="countdown-minute"></span>:
+                    <span id="countdown-second"></span></div>
+            </div>
+        </section>
+
+        <!--Buttons-->
+        <section class="buttons">
+            <!--Buttons | start button-->
+            <div id="start-btn-div">
+                <button id="start-btn">Start</button>
+            </div>
+
+            <div id="after-start-btn-div">
+                <!--Buttons that appear after clicking start-->
+                <!--Buttons | reset button-->
+                <button onclick="clickReset()" id="reset-btn">Reset</button>
+                <!--Buttons | stop and resume button-->
+                <button onclick="clickStopResume()" id="stop-btn">Stop</button>
+            </div>
+        </section>
+
+    </section>
+
+    <audio id="countdown-finish-sound">
+        <source  src = "timer/media/bell-sound.mp3" type = "audio/mp3">
+    </audio>
+    <!--local style-->
+    <style type="text/css">
+        /* styling the (timer) option */
+        
+        .timer-li {
+            color: rgb(48, 190, 143);
+        }
+        /*Making tiny colorful border under  (timer) option*/
+        
+        .head:after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            height: 2px;
+            background-color: rgb(48, 190, 143);
+            transition: 0.5s ease;
+        }
+        
+        .stopwatch-li {
+            color: #000
+        }
+    </style>
+
+    <!--JavaScript-->
+    <script src="timer/timer-script.js"></script>
+</body>
+
+</html>
